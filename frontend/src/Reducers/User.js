@@ -70,22 +70,26 @@ export const userReducer = createReducer(initialState,(builder)=> {
   })
 });
 
-// export const postOfFollowingReducer = createReducer(initialState, {
-//   postOfFollowingRequest: (state) => {
-//     state.loading = true;
-//   },
-//   postOfFollowingSuccess: (state, action) => {
-//     state.loading = false;
-//     state.posts = action.payload;
-//   },
-//   postOfFollowingFailure: (state, action) => {
-//     state.loading = false;
-//     state.error = action.payload;
-//   },
-//   clearErrors: (state) => {
-//     state.error = null;
-//   },
-// });
+export const postOfFollowingReducer = createReducer(initialState, (builder)=> {
+  builder
+  .addCase("postOfFollowingRequest", (state) => {
+    state.loading = true;
+  })
+
+  .addCase("postOfFollowingSuccess" ,(state, action) => {
+    state.loading = false;
+    state.posts = action.payload;
+  })
+
+  .addCase("postOfFollowingFailure", (state, action) => {
+    state.loading = false;
+    state.error = action.payload;
+  })
+
+  .addCase("clearErrors", (state) => {
+    state.error = null;
+  })
+});
 
 // export const allUsersReducer = createReducer(initialState, {
 //   allUsersRequest: (state) => {

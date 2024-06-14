@@ -126,11 +126,11 @@ exports.getPostOfFollowing = async (req, res) => {
         owner: {
           $in: user.following, // mongooes function $in:
         },
-      }) //.populate("owner likes comments.user");
+      }) .populate("owner likes comments.user");
   
       res.status(200).json({
         success: true,
-        posts, //: posts.reverse(),
+        posts : posts.reverse(),
       });
     } catch (error) {
       res.status(500).json({

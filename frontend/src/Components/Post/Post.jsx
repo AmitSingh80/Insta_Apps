@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Post.css";
 import {
     MoreVert,
@@ -21,8 +21,19 @@ const Post =({
     isDelete = false,
     isAccount = false,
 }) =>{
+    const [liked,setLiked] =useState (false);
+    const handleLike =()=>{
+        setLiked(!liked)
+    }
     return <div className="post">
-        <div className="postHeader"></div>
+        <div className="postHeader">
+         {isAccount ?(
+            <button>
+                <MoreVert/>
+            </button>
+         ):null} 
+       
+        </div>
         <img src={postImage} alt="Post"/>
 
        <div className="postDetails">
@@ -54,15 +65,18 @@ const Post =({
        </button>
 
        <div className="postFooter">
-        <button>
-            <FavoriteBorder/>
+        <button onClick={handleLike}>
+            {liked ? <Favorite style={{color:"red"}}/>:
+            <FavoriteBorder/>}
         </button>
         <button>
             <ChatBubbleOutline/>
         </button>
-        <button>
-            <DeleteOutline/>
-        </button>
+         {isDelete ?(
+             <button>
+             <DeleteOutline/>
+         </button>
+         ) :null }
        </div>
 
     </div>

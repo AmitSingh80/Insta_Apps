@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import {
   
+  postOfFollowingReducer,
   userReducer,
 } from "./Reducers/User";
 // import { likeReducer, myPostsReducer, userPostsReducer } from "./Reducers/Post";
@@ -8,6 +9,7 @@ import {
 const store = configureStore({
   reducer: {
     user: userReducer,
+    postOfFollowing :postOfFollowingReducer,
    
   },
 });
