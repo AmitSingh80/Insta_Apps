@@ -1,5 +1,5 @@
-// import { Email, Password } from "@mui/icons-material";
-import  axios from"axios"
+
+import  axios from "axios";
 
 export const loginUser = (email , password) => async(dispatch)=>{
   
@@ -33,13 +33,11 @@ export const loginUser = (email , password) => async(dispatch)=>{
 //loaduser 
 
 export const loadUser = () => async(dispatch)=>{
-  
-
     try {
           
         dispatch({
-            type:"LoadUserRequest"
-        })
+            type:"LoadUserRequest",
+        });
 
         const {data} = await axios.get("/post_v1/myProfile");
             
@@ -48,13 +46,13 @@ export const loadUser = () => async(dispatch)=>{
         dispatch({
             type:"LoadUserSuccess",
             payload: data.user,
-        })
+        });
 
 
     } catch (error) {
         dispatch({
             type:"LoadUserFailure",
-            payload:error
+            payload:error.response.data.message,
         })
     }
 }

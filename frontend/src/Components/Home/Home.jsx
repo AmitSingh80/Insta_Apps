@@ -1,6 +1,6 @@
 import React, { } from "react";
-// import Post from "../Post/Post";
-// import User from "../User/User";
+import Post from "../Post/Post";
+import User from "../User/User";
 import "./Home.css";
 // import { useDispatch, useSelector } from "react-redux";
 // import { getAllUsers, getFollowingPosts } from "../../Actions/User";
@@ -9,7 +9,7 @@ import "./Home.css";
 // import { useAlert } from "react-alert";
 
 const Home = () => {
-    return
+    return (
 //   const dispatch = useDispatch();
 //   const alert = useAlert();
 
@@ -48,11 +48,24 @@ const Home = () => {
 //     <Loader />
 //   ) :
  
-(
+ 
     <div className="home">
       <div className="homeleft">
+        <Post postImage ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAxoyQI6_NadGWQSKcFXq8NgWhcms96p0SKw&s "
+          ownerName= {"Amit"}
+          caption= {" this is first post"}
+        />
+       
+      </div>
+      <div className="homeright">
+     <User
+           userId ={User._id}
+           name ={"Amit"}
+           avatar ={"https://www.carwale.com/mahindra-cars/xuv-3xo/images/xuvxo-right-front-three-quarter-590855/"}
+           />
 
       </div>
+
     </div>
   );
 };
